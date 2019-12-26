@@ -1,13 +1,16 @@
+let IS_PART_TIME = 1;
+let IS_FULL_TIME = 2;
 let EMP_RATE_PER_HOUR = 20;
 
 let empHrs = 0;
 let empWage = 0;
-let isPresent = 1;
 
-let employeeCheck = Math.floor(Math.random() * 10) % 2;
+let employeeCheck = Math.floor(Math.random() * 10) % 3;
 
-if (isPresent == employeeCheck)
-	empHrs =  8;
+if(employeeCheck == IS_PART_TIME)
+	empHrs =  4;
+else if(employeeCheck == IS_FULL_TIME)
+	empHrs = 8;
 else
 	empHrs = 0;
 
