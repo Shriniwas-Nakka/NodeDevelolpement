@@ -9,9 +9,7 @@ let totalEmpHrs = 0;
 let totalEmpWage = 0;
 let totalWorkingDays = 0;
 
-while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays <= NUM_OF_WORKING_DAYS) {
-	totalWorkingDays++;
-	let employeeCheck = Math.floor(Math.random() * 10) % 3;
+function getWorkingHours(employeeCheck) {
 	switch(employeeCheck) {
 		case IS_PART_TIME:
 			empHrs = 4;
@@ -22,6 +20,14 @@ while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays <= NUM_OF_WORKING_DAY
 		default:
 			empHrs = 0;
 	}
+	return empHrs;
+}
+
+while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays <= NUM_OF_WORKING_DAYS) {
+	totalWorkingDays++;
+	let employeeCheck = Math.floor(Math.random() * 10) % 3;
+	empHrs = getWorkingHours(employeeCheck);
 	totalEmpWage += empHrs;
 }
+
 totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
